@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clone</title>
+    <style>
+        .cloneable {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #675ce0;
+            border: 2px solid #333;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .cloneable:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="cloneable" onclick="cloneDiv(this)">Click Me!</div>
+    <script>
+        function cloneDiv(element) {
+            const clone = element.cloneNode(true);
+            const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
+            clone.style.backgroundColor = randomColor;
+            document.body.appendChild(clone);
+        }
+    </script>
+</body>
+</html>

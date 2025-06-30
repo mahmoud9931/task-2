@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Style Editor</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        table#Text {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        table#Text td {
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+        }
+        
+        table#Text tr:first-child td {
+            background: #04385a;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        input[type="radio"] {
+            margin: 8px;
+            cursor: pointer;
+        }
+        
+        label {
+            cursor: pointer;
+            display: block;
+            padding: 5px;
+        }
+        
+        label:hover {
+            background: #e3f2fd;
+            border-radius: 4px;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .control-panel {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Style Editor</h1>
+        <table id="Text" >
+            <tr>
+                <td><b>fontFamily</b></td>
+                <td><b>textAlign</b></td>
+                <td><b>lineHeight</b></td>
+                <td><b>letterSpacing</b></td>
+                <td><b>textIndent</b></td>
+                <td><b>textTransform</b></td>
+                <td><b>textDecoration</b></td>
+                <td><b>textBorder</b></td>
+                <td><b>Bordercolor</b></td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <label><input type="radio" name="Font" onclick="ChangeFont('arial')" checked>arial</label>
+                    <label><input type="radio" name="Font" onclick="ChangeFont('courier')">courier</label>
+                    <label><input type="radio" name="Font" onclick="ChangeFont('georgia')">georgia</label>
+                    <label><input type="radio" name="Font" onclick="ChangeFont('impact')">impact</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Align" onclick="ChangeAlign('left')" checked>left</label>
+                    <label><input type="radio" name="Align" onclick="ChangeAlign('center')">center</label>
+                    <label><input type="radio" name="Align" onclick="ChangeAlign('right')">right</label>
+                    <label><input type="radio" name="Align" onclick="ChangeAlign('justify')">justify</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Height" onclick="ChangeHeight('normal')" checked>normal</label>
+                    <label><input type="radio" name="Height" onclick="ChangeHeight('10px')">10px</label>
+                    <label><input type="radio" name="Height" onclick="ChangeHeight('15px')">15px</label>
+                    <label><input type="radio" name="Height" onclick="ChangeHeight('1.5')">1.5</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Lspace" onclick="ChangeLSpace('normal')" checked>normal</label>
+                    <label><input type="radio" name="Lspace" onclick="ChangeLSpace('1px')">1px</label>
+                    <label><input type="radio" name="Lspace" onclick="ChangeLSpace('2px')">2px</label>
+                    <label><input type="radio" name="Lspace" onclick="ChangeLSpace('3px')">3px</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Indent" onclick="ChangeIndent('0px')" checked>0px</label>
+                    <label><input type="radio" name="Indent" onclick="ChangeIndent('5px')">5px</label>
+                    <label><input type="radio" name="Indent" onclick="ChangeIndent('10px')">15px</label>
+                    <label><input type="radio" name="Indent" onclick="ChangeIndent('15px')">25px</label>
+                    <label><input type="radio" name="Indent" onclick="ChangeIndent('20px')">25px</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Transform" onclick="ChangeTransform('none')" checked>none</label>
+                    <label><input type="radio" name="Transform" onclick="ChangeTransform('capitalize')">capitalize</label>
+                    <label><input type="radio" name="Transform" onclick="ChangeTransform('uppercase')">uppercase</label>
+                    <label><input type="radio" name="Transform" onclick="ChangeTransform('lowercase')">lowercase</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Decorate" onclick="ChangeDecorate('none')" checked>none</label>
+                    <label><input type="radio" name="Decorate" onclick="ChangeDecorate('overline')">overline</label>
+                    <label><input type="radio" name="Decorate" onclick="ChangeDecorate('underline')">underline</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="Border" onclick="ChangeBorder('none')" checked>none</label>
+                    <label><input type="radio" name="Border" onclick="ChangeBorder('dashed')">dashed</label>
+                    <label><input type="radio" name="Border" onclick="ChangeBorder('double')">double</label>
+                    <label><input type="radio" name="Border" onclick="ChangeBorder('inset')">inset</label>
+                    <label><input type="radio" name="Border" onclick="ChangeBorder('outset')">outset</label>
+                    <label><input type="radio" name="Border" onclick="ChangeBorder('solid')">solid</label>
+                </td>
+                
+                <td>
+                    <label><input type="radio" name="BorderColor" onclick="ChangeBorderColor('black')" checked>black</label>
+                    <label><input type="radio" name="BorderColor" onclick="ChangeBorderColor('pink')">pink</label>
+                    <label><input type="radio" name="BorderColor" onclick="ChangeBorderColor('red')">red</label>
+                    <label><input type="radio" name="BorderColor" onclick="ChangeBorderColor('green')">green</label>
+                    <label><input type="radio" name="BorderColor" onclick="ChangeBorderColor('blue')">blue</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        function ChangeFont(font) {
+            document.getElementById("PAR").style.fontFamily = font;
+        }
+        
+        function ChangeAlign(align) {
+            document.getElementById("PAR").style.textAlign = align;
+        }
+        
+        function ChangeHeight(height) {
+            document.getElementById("PAR").style.lineHeight = height;
+        }
+        
+        function ChangeLSpace(spacing) {
+            document.getElementById("PAR").style.letterSpacing = spacing;
+        }
+        
+        function ChangeIndent(indent) {
+            document.getElementById("PAR").style.textIndent = indent;
+        }
+        
+        function ChangeTransform(transform) {
+            document.getElementById("PAR").style.textTransform = transform;
+        }
+        
+        function ChangeDecorate(decor) {
+            document.getElementById("PAR").style.textDecoration = decor;
+        }
+        
+        function ChangeBorder(border) {
+            document.getElementById("PAR").style.borderStyle = border;
+        }
+        
+        function ChangeBorderColor(color) {
+            document.getElementById("PAR").style.borderColor = color;
+        }
+    </script>
+</body>
+</html>
